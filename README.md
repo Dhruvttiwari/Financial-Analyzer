@@ -2,7 +2,7 @@
 
 An interactive Python web application that ingests raw bank CSV statements, cleans and deduplicates transactions using SHA-256 hashing, auto-categorizes expenses with Regex rules, persists records in SQLite, and flags unusual spending spikes using statistical Z-scores.
 
-**Live Demo:** [Add your Streamlit Cloud link here]
+**Live Demo:** [Launch Live App](https://financial-analyzer-vrw5ghnnvcjtm8xwym9l6d.streamlit.app/)
 
 ## Key Features
 - **Duplicate-Proof CSV Ingestion:** Normalizes dates, strips currency symbols/commas, validates schemas, and uses SHA-256 transaction fingerprints (`txn_hash`) with SQLite `INSERT OR IGNORE` so overlapping uploads never double-count records.
@@ -32,3 +32,19 @@ finance-analyzer/
 │   └── test_cleaner.py     # Pytest unit tests
 ├── requirements.txt
 └── .gitignore
+```
+
+## Run Locally
+```bash
+git clone https://github.com/Dhruvttiwari/Financial-Analyzer.git
+cd Financial-Analyzer
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+## Run Unit Tests
+```bash
+python -m pytest -v
+```
